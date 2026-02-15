@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bmw-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: bmw
+  template:
+    metadata:
+      labels:
+        app: bmw
+    spec:
+      containers:
+      - name: bmw-container
+        image: ganesan3805s/bmw-app:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
